@@ -12,10 +12,10 @@ const generateAction = async (req, res) => {
   console.log(`API: ${basePromptPrefix}${req.body.userInputName}${" "}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
-    model: 'text-davinci-003',
+    model: 'text-babbage-001',
     prompt: `${basePromptPrefix}${req.body.userInputName}${" "}${req.body.userInput}`,
     temperature: 0.6,
-    max_tokens: 175,
+    max_tokens: 100,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
